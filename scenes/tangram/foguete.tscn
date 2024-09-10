@@ -1,0 +1,191 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://assets/mesa.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tangram/tri_2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/tangram/quad.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/tangram/paralelogramo.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/tangram/quad_vazio.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/tangram/tri_2_vazio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/tangram/paralelogramo_vazio.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/tangram/tri_1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/tangram/tri_1_vazio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/tangram/win_screens/foguete/planeta-fundo.png" type="Texture" id=10]
+[ext_resource path="res://assets/tangram/win_screens/foguete/background.png" type="Texture" id=11]
+[ext_resource path="res://assets/tangram/win_screens/foguete/planeta.png" type="Texture" id=12]
+[ext_resource path="res://assets/tangram/win_screens/foguete/foguete.png" type="Texture" id=13]
+[ext_resource path="res://assets/tangram/win_screens/foguete/fogo.png" type="Texture" id=14]
+[ext_resource path="res://scripts/tangram/foguete-loop.gd" type="Script" id=15]
+[ext_resource path="res://assets/styles/tema.tres" type="Theme" id=16]
+[ext_resource path="res://assets/styles/new_theme.tres" type="Theme" id=17]
+[ext_resource path="res://assets/grid-background.png" type="Texture" id=18]
+
+[node name="Node2D" type="Node2D"]
+visible = false
+script = ExtResource( 15 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.996078, 0.898039, 0.705882, 1 )
+
+[node name="grid" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.117647 )
+position = Vector2( 648, 376 )
+texture = ExtResource( 18 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1296, 752 )
+
+[node name="Mesa" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 64, 384 )
+rotation = 1.5708
+texture = ExtResource( 1 )
+
+[node name="Mesa2" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 1216, 384 )
+rotation = 1.5708
+scale = Vector2( 1, -1 )
+texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -411.5
+margin_top = -23.0
+margin_right = 411.5
+margin_bottom = 23.0
+theme = ExtResource( 16 )
+text = "Encaixe as peças para formar a figura!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="Area2D8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 624, 304 )
+
+[node name="Area2D9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 624, 432 )
+
+[node name="Area2D10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 624, 432 )
+rotation = 3.14159
+
+[node name="Area2D11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 624, 528 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Area2D12" parent="." instance=ExtResource( 7 )]
+position = Vector2( 512, 496 )
+
+[node name="Area2D13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 736, 448 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Area2D14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 736, 544 )
+rotation = -1.5708
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Area2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 96 )
+rotation = -1.5708
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, 256 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+
+[node name="Area2D3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 64, 608 )
+
+[node name="Area2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1200, 96 )
+rotation = 3.14159
+
+[node name="Area2D5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1200, 256 )
+
+[node name="Area2D6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 64, 432 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Area2D7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1184, 448 )
+
+[node name="Area2D16" parent="." instance=ExtResource( 9 )]
+position = Vector2( 624, 208 )
+rotation = -1.5708
+
+[node name="Area2D15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1200, 624 )
+rotation = -1.5708
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 688, 400 )
+texture = ExtResource( 11 )
+
+[node name="Fundo" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 960, 400 )
+rotation = 0.261799
+scale = Vector2( 0.747472, 0.747472 )
+texture = ExtResource( 10 )
+
+[node name="Planeta" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 64, 64 )
+scale = Vector2( 0.237308, 0.237308 )
+texture = ExtResource( 12 )
+
+[node name="Fogo" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 721.473, 487.396 )
+rotation = -0.501566
+scale = Vector2( 0.802163, 0.802163 )
+texture = ExtResource( 14 )
+
+[node name="Foguete" type="Sprite" parent="CanvasLayer2"]
+position = Vector2( 625.472, 311.396 )
+rotation = -0.523599
+scale = Vector2( 0.464308, 0.464308 )
+texture = ExtResource( 13 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.0
+margin_top = 216.0
+margin_right = 384.0
+margin_bottom = 262.0
+theme = ExtResource( 16 )
+text = "Parabéns! Você completou a figura!"
+align = 1
+
+[node name="Button" type="Button" parent="CanvasLayer3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = 263.0
+margin_right = 160.0
+margin_bottom = 335.0
+theme = ExtResource( 17 )
+text = "Menu Inicial"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer3/Button" to="." method="_on_Button_pressed"]
