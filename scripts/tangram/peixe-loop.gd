@@ -10,7 +10,7 @@ func _ready():
 	tween.tween_property($CanvasLayer/Label, "modulate", Color.transparent, 1)
 
 func _process(delta):
-	if AutoLoad.pontuacao == 1:
+	if AutoLoad.pontuacao == 7:
 		$CanvasLayer/Mesa.visible = false
 		$CanvasLayer/Mesa2.visible = false
 		$CanvasLayer2.visible = true
@@ -28,5 +28,17 @@ func _on_Timer_timeout():
 	$CanvasLayer/Label.visible = false
 
 func _on_Button_pressed():
+	AutoLoad.pontuacao = 0
+	get_tree().change_scene("res://scenes/menu.tscn")
+
+func _on_bt_pausa_pressed():
+	$CanvasLayer4.visible = true
+	self.visible = false
+
+func _on_bt_retomar_pressed():
+	$CanvasLayer4.visible = false
+	self.visible = true
+
+func _on_bt_sair_pressed():
 	AutoLoad.pontuacao = 0
 	get_tree().change_scene("res://scenes/menu.tscn")
